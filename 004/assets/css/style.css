@@ -492,3 +492,6 @@ button { font: inherit; color: inherit; }
 
 /* 文節で改行する：<wbr> の位置でだけ折り返す（見出し・ボタンはD文字側で制御） */
 p, li, dd { word-break: keep-all; overflow-wrap: anywhere; }
+
+/* ページ内リンクで見出しが上部のヘッダーに隠れないようにする（スマホ・タブレット） */
+@media (max-width: 1079px) { section[id] { scroll-margin-top: 84px; } }
