@@ -12,7 +12,8 @@ body{margin:0}
 a{color:#9A4C8E}a:hover{color:#7A3B70}
 .pc-only{display:flex}
 .sp-only{display:none}
-@container (max-width: 760px){.pc-only{display:none}.sp-only{display:inline-flex}}
+.nt{flex:1 1 0;min-width:0}
+@container (max-width: 760px){.nd{flex-basis:100%}.nt{flex-basis:100%}.pc-only{display:none}.sp-only{display:inline-flex}}
 .sw{position:relative;overflow:hidden;isolation:isolate;transition:color .35s ease,border-color .35s ease,box-shadow .35s ease}
 .sw::before{content:"";position:absolute;inset:0;z-index:-1;background:#9A4C8E;border-radius:inherit;transform:scaleX(0);transform-origin:left center;transition:transform .45s cubic-bezier(.6,0,.2,1)}
 .sw:hover::before,.sw:focus-visible::before{transform:scaleX(1)}
@@ -23,6 +24,12 @@ a{color:#9A4C8E}a:hover{color:#7A3B70}
 .sw:hover .arw,.sw:focus-visible .arw{transform:translateX(6px)}
 .sw:hover .arw-ext,.sw:focus-visible .arw-ext{transform:translate(3px,-3px)}
 .sw:hover .arw-up,.sw:focus-visible .arw-up{transform:translateY(-4px)}
+p,li,dd{word-break:keep-all;overflow-wrap:anywhere}
+nav[aria-label="グローバルナビ"] a{display:inline-block;padding:11px 0}
+nav[aria-label="グローバルナビ"]{margin-top:-8px;margin-bottom:-11px}
+nav[aria-label="フッターナビ"] a{display:inline-block;padding:10px 0}
+nav[aria-label="フッターナビ"]{row-gap:0!important}
+@container (max-width: 760px){.bb-sub,.bb-ext{display:none!important}.pt{width:48px!important;height:48px!important}.hrs{font-size:13px!important}.hrs th,.hrs td{padding-left:0!important;padding-right:0!important}}
 @media (prefers-reduced-motion: reduce){.sw::before,.sw,.arw,.arw-ext,.arw-up{transition:none}}
 </style>
 </head>
@@ -31,7 +38,7 @@ a{color:#9A4C8E}a:hover{color:#7A3B70}
 
 <header style="position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,0.96); border-bottom: 1px solid #F4E9F1">
 <div style="max-width: 1240px; margin: 0 auto; padding: 14px clamp(16px, 4cqi, 40px); display: flex; align-items: center; justify-content: space-between; gap: 16px">
-<a href="#" style="display: flex; align-items: center; text-decoration: none; flex: 0 1 auto; min-width: 0"><img src="assets/img/logo.webp" alt="川崎沼田クリニック" style="display: block; height: clamp(34px, 3cqi, 44px); width: auto; max-width: 62cqi"></a>
+<a href="./" style="display: flex; align-items: center; text-decoration: none; flex: 0 1 auto; min-width: 0"><img src="assets/img/logo.webp" alt="川崎沼田クリニック" style="display: block; height: clamp(34px, 3cqi, 44px); width: auto; max-width: 62cqi"></a>
 <div class="pc-only" style="flex-direction: column; align-items: flex-end; gap: 10px">
 <div style="display: flex; gap: 10px">
 <span style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 999px; background: #E6F4FB; font-size: 13px; color: #2F6E92">
@@ -42,13 +49,13 @@ JR川崎駅から徒歩2分</span>
 <span style="white-space: nowrap">ご<span style="margin-right: -0.02em">予</span><span style="margin-right: -0.02em">約</span> TEL 044-589-5377</span></a>
 </div>
 <nav aria-label="グローバルナビ" style="display: flex; gap: 28px; font-size: 14px">
-<a href="#" style="color: #9A4C8E; text-decoration: none; font-weight: 500">ホーム</a>
-<a href="#" style="color: #4B4458; text-decoration: none">初めての方へ</a>
-<a href="#" style="color: #4B4458; text-decoration: none">院長紹介</a>
-<a href="#" style="color: #4B4458; text-decoration: none">診療案内</a>
-<a href="#" style="color: #4B4458; text-decoration: none">診療時間・アクセス</a>
-<a href="#" style="color: #4B4458; text-decoration: none">コラム</a>
-<a href="#" style="color: #4B4458; text-decoration: none">よくある質問</a>
+<a href="./" style="color: #9A4C8E; text-decoration: none; font-weight: 500">ホーム</a>
+<a href="#first" style="color: #4B4458; text-decoration: none">初めての方へ</a>
+<a href="#greeting" style="color: #4B4458; text-decoration: none">院長紹介</a>
+<a href="#check" style="color: #4B4458; text-decoration: none">診療案内</a>
+<a href="#access" style="color: #4B4458; text-decoration: none">診療時間・アクセス</a>
+<a href="#column" style="color: #4B4458; text-decoration: none">コラム</a>
+<a href="#first" style="color: #4B4458; text-decoration: none">よくある質問</a>
 </nav>
 </div>
 <div class="sp-only" style="align-items: center; gap: 8px">
@@ -68,20 +75,20 @@ JR川崎駅から徒歩2分</span>
 <span aria-hidden="true" style="position: absolute; bottom: 220px; left: 2%; width: 56px; height: 56px; border-radius: 50%; background: #F9F1F7"></span>
 <div style="max-width: 1240px; margin: 0 auto; padding: 0 clamp(20px, 4cqi, 40px); display: flex; flex-wrap: wrap-reverse; align-items: center; gap: clamp(28px, 4cqi, 56px)">
 <div style="flex: 1 1 460px; min-width: 0; position: relative; z-index: 1">
-<p style="margin: 0 0 18px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: #F9F1F7; font-size: 13px; color: #9A4C8E">心療内科・精神科｜JR川崎駅東口から徒歩2分</p>
+<p style="margin: 0 0 18px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: #F9F1F7; font-size: 13px; color: #9A4C8E">心療内科・精神科｜JR川崎駅<wbr>東口から<wbr>徒歩2分</p>
 <h1 style="margin: 0; font-size: clamp(44px, 5.6cqi, 80px); font-weight: 500; line-height: 1.3; color: #AB589D; letter-spacing: 0.06em"><span style="display: inline-block; white-space: nowrap"><span><span style="margin-right: -0.13em">こ</span><span style="margin-left: -0.13em; margin-right: -0.13em">こ</span><span style="margin-left: -0.11em; margin-right: -0.12em">ろ</span><span style="margin-left: -0.03em; margin-right: -0.65em">、</span></span></span><br><span style="display: inline-block; white-space: nowrap"><span><span style="margin-right: -0.13em">こ</span><span style="margin-left: -0.06em; margin-right: -0.06em">ん</span><span style="margin-left: -0.09em; margin-right: -0.07em">に</span><span style="margin-left: -0.07em; margin-right: -0.12em">ち</span><span style="margin-left: -0.07em; margin-right: -0.05em">は</span></span></span></h1>
-<p style="margin: 22px 0 0; font-size: clamp(16px, 1.4cqi, 19px); line-height: 2">ひとりで抱えてきたこと、<br>ここで少しずつ話してみませんか。</p>
+<p style="margin: 22px 0 0; font-size: clamp(16px, 1.4cqi, 19px); line-height: 2">ひとりで<wbr>抱えてきた<wbr>こと、<br>ここで<wbr>少しずつ<wbr>話してみませんか。</p>
 <ul style="list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px">
-<li style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: #FFFFFF; border: 1.5px solid #EEDCEA; font-size: 14px; color: #9A4C8E"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg>完全主治医制</li>
-<li style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: #FFFFFF; border: 1.5px solid #EEDCEA; font-size: 14px; color: #9A4C8E"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg>精神科医28年</li>
-<li style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: #FFFFFF; border: 1.5px solid #EEDCEA; font-size: 14px; color: #9A4C8E"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg>JR川崎駅から徒歩2分</li>
+<li style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: #FFFFFF; border: 1.5px solid #EEDCEA; font-size: 14px; color: #9A4C8E"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg>完全主<wbr>治医制</li>
+<li style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: #FFFFFF; border: 1.5px solid #EEDCEA; font-size: 14px; color: #9A4C8E"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg>精神科医2<wbr>8年</li>
+<li style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: #FFFFFF; border: 1.5px solid #EEDCEA; font-size: 14px; color: #9A4C8E"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg>JR川崎駅から<wbr>徒歩2分</li>
 </ul>
 <div style="margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px">
 <a class="sw" href="tel:0445895377" style="display: inline-flex; align-items: center; gap: 12px; padding: 14px 30px 14px 24px; border-radius: 999px; background: #F9E09A; color: #4B4458; text-decoration: none">
 <span style="width: 40px; height: 40px; border-radius: 50%; background: #FFFFFF; color: #4B4458; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5-2.5l5 2v4a2 2 0 0 1-2 2a16 16 0 0 1-15-15a2 2 0 0 1 2-2"></path></svg></span>
 <span style="display: flex; flex-direction: column; line-height: 1.4"><span style="font-size: 12px"><span style="white-space: nowrap"><span style="margin-right: -0.05em">お</span>電話<span style="margin-left: -0.06em">で</span><span style="margin-left: -0.12em">ご</span><span style="margin-right: -0.02em">予</span><span style="margin-right: -0.02em">約</span></span></span><span style="font-family: 'Quicksand', sans-serif; font-size: 22px; font-weight: 600; letter-spacing: 0.06em">044-589-5377</span></span>
 </a>
-<a class="sw" href="#" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border-radius: 999px; border: 2px solid #9A4C8E; color: #9A4C8E; text-decoration: none; font-size: 16px; font-weight: 500"><span style="white-space: nowrap"><span style="margin-right: -0.02em">初</span><span style="margin-left: -0.06em; margin-right: -0.07em">め</span><span style="margin-left: -0.06em; margin-right: -0.09em">て</span><span style="margin-left: -0.05em; margin-right: -0.06em">の</span>方<span style="margin-left: -0.02em; margin-right: -0.02em">へ</span></span><svg class="arw" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 18l6-6M13 6l6 6"></path></svg></a>
+<a class="sw" href="#first" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border-radius: 999px; border: 2px solid #9A4C8E; color: #9A4C8E; text-decoration: none; font-size: 16px; font-weight: 500"><span style="white-space: nowrap"><span style="margin-right: -0.02em">初</span><span style="margin-left: -0.06em; margin-right: -0.07em">め</span><span style="margin-left: -0.06em; margin-right: -0.09em">て</span><span style="margin-left: -0.05em; margin-right: -0.06em">の</span>方<span style="margin-left: -0.02em; margin-right: -0.02em">へ</span></span><svg class="arw" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 18l6-6M13 6l6 6"></path></svg></a>
 </div>
 </div>
 <div style="flex: 1 1 420px; min-width: 0; position: relative; display: flex; justify-content: center; padding-bottom: 24px">
@@ -95,7 +102,7 @@ JR川崎駅から徒歩2分</span>
 <span style="position: relative; padding: 6px 16px; border-radius: 999px; background: #7EC4E6; color: #17405A; font-size: 13px; font-weight: 500"><span style="white-space: nowrap"><span style="margin-right: -0.05em">は</span><span style="margin-left: -0.20em; margin-right: -0.10em">じ</span><span style="margin-left: -0.06em; margin-right: -0.07em">め</span><span style="margin-left: -0.15em; margin-right: -0.14em">ま</span><span style="margin-left: -0.20em; margin-right: -0.10em">し</span><span style="margin-left: -0.06em; margin-right: -0.09em">て</span><span style="margin-left: -0.31em; margin-right: -0.31em">！</span></span></span>
 <div style="padding: 14px 22px; border-radius: 22px; background: #FFFFFF; border: 1.5px solid #EEDCEA; line-height: 1.5">
 <p style="margin: 0; font-size: 12px; color: #9A4C8E">院長</p>
-<p style="margin: 2px 0 0; font-size: 20px; font-weight: 500">沼田 真一</p>
+<p style="margin: 2px 0 0; font-size: 20px; font-weight: 500">沼田 真<wbr>一</p>
 <p style="margin: 4px 0 0; font-size: 12px">精神保健指定医・精神科専門医</p>
 </div>
 </div>
@@ -104,19 +111,19 @@ JR川崎駅から徒歩2分</span>
 <nav aria-label="よく使うリンク" style="position: relative; z-index: 2; margin: clamp(36px, 4cqi, 56px) 0 0; padding: 0 16px; display: flex; justify-content: center; gap: clamp(12px, 2cqi, 28px); background: linear-gradient(to bottom, #FFFFFF 50%, #F9F1F7 50%)">
 <a class="sw" href="tel:0445895377" style="width: clamp(100px, 10cqi, 140px); aspect-ratio: 1 / 1; border-radius: 50%; background: #F9E09A; color: #4B4458; text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; font-size: clamp(12px, 1.1cqi, 15px); line-height: 1.4; text-align: center">
 <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5-2.5l5 2v4a2 2 0 0 1-2 2a16 16 0 0 1-15-15a2 2 0 0 1 2-2"></path></svg><span style="display: block; text-align: center; line-height: 1.4"><span style="white-space: nowrap">ご<span style="margin-right: -0.02em">予</span><span style="margin-right: -0.02em">約</span></span><br><span style="white-space: nowrap"><span style="margin-right: -0.05em">お</span>電話</span></span></a>
-<a class="sw" href="#" style="width: clamp(100px, 10cqi, 140px); aspect-ratio: 1 / 1; border-radius: 50%; background: #FFFFFF; border: 2px solid #EEDCEA; color: #9A4C8E; text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; font-size: clamp(12px, 1.1cqi, 15px); line-height: 1.4; text-align: center; box-sizing: border-box">
+<a class="sw" href="#first" style="width: clamp(100px, 10cqi, 140px); aspect-ratio: 1 / 1; border-radius: 50%; background: #FFFFFF; border: 2px solid #EEDCEA; color: #9A4C8E; text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; font-size: clamp(12px, 1.1cqi, 15px); line-height: 1.4; text-align: center; box-sizing: border-box">
 <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"></path></svg><span style="white-space: nowrap"><span style="margin-right: -0.02em">初</span><span style="margin-left: -0.06em; margin-right: -0.07em">め</span><span style="margin-left: -0.06em; margin-right: -0.09em">て</span><span style="margin-left: -0.05em; margin-right: -0.06em">の</span>方</span></a>
-<a class="sw" href="#" style="width: clamp(100px, 10cqi, 140px); aspect-ratio: 1 / 1; border-radius: 50%; background: #FFFFFF; border: 2px solid #EEDCEA; color: #9A4C8E; text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; font-size: clamp(12px, 1.1cqi, 15px); line-height: 1.4; text-align: center; box-sizing: border-box">
+<a class="sw" href="#first" style="width: clamp(100px, 10cqi, 140px); aspect-ratio: 1 / 1; border-radius: 50%; background: #FFFFFF; border: 2px solid #EEDCEA; color: #9A4C8E; text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; font-size: clamp(12px, 1.1cqi, 15px); line-height: 1.4; text-align: center; box-sizing: border-box">
 <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 17v.01M12 13.5a1.5 1.5 0 0 1 1-1.4a2.6 2.6 0 1 0-3.6-2.4"></path></svg><span style="display: block; text-align: center; line-height: 1.4"><span style="white-space: nowrap"><span style="margin-right: -0.11em">よ</span><span style="margin-left: -0.20em; margin-right: -0.22em">く</span><span style="margin-left: -0.06em; margin-right: -0.06em">あ</span><span style="margin-left: -0.12em; margin-right: -0.14em">る</span></span><br><span style="white-space: nowrap">質<span style="margin-left: -0.02em; margin-right: -0.02em">問</span></span></span></a>
 </nav>
 </section>
 
-<section style="background: #F9F1F7; padding: 40px 0 clamp(72px, 7cqi, 112px)">
+<section id="features" style="background: #F9F1F7; padding: 40px 0 clamp(72px, 7cqi, 112px)">
 <div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4cqi, 40px)">
 <div style="text-align: center">
 <p style="margin: 0; font-family: 'Quicksand', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.24em; color: #9A4C8E">FEATURES</p>
 <h2 style="margin: 6px 0 0; font-size: clamp(26px, 2.8cqi, 38px); font-weight: 500; color: #4B4458"><span><span style="margin-right: -0.04em">当</span><span style="margin-left: -0.02em">院</span><span style="margin-left: -0.05em; margin-right: -0.06em">の</span>3<span style="margin-left: -0.04em; margin-right: -0.07em">つ</span><span style="margin-left: -0.05em; margin-right: -0.06em">の</span>特徴</span></h2>
-<p style="margin: 14px 0 0; font-size: 16px">はじめて精神科を受診する方にも、安心して通っていただくために。</p>
+<p style="margin: 14px 0 0; font-size: 16px">はじめて<wbr>精神科を<wbr>受診する<wbr>方にも、<wbr>安心して<wbr>通っていただく<wbr>ために。</p>
 </div>
 <div style="margin-top: 64px; display: flex; flex-wrap: wrap; gap: 48px 24px">
 <article style="flex: 1 1 300px; min-width: 0; position: relative; background: #FFFFFF; border-radius: 32px; padding: 48px 32px 36px">
@@ -127,7 +134,7 @@ JR川崎駅から徒歩2分</span>
 <span style="font-family: 'Quicksand', sans-serif; font-size: 44px; font-weight: 600; color: #EBD3E7; line-height: 1">01</span>
 </div>
 <h3 style="margin: 24px 0 0; font-size: 22px; font-weight: 500; line-height: 1.5; color: #9A4C8E"><span><span style="margin-right: -0.02em">初</span>診<span style="margin-left: -0.04em; margin-right: -0.02em">か</span><span style="margin-left: -0.15em; margin-right: -0.13em">ら</span>最後<span style="margin-left: -0.15em; margin-right: -0.14em">ま</span><span style="margin-left: -0.06em">で</span><span style="margin-left: -0.03em; margin-right: -0.65em">、</span></span><br><span>院長<span style="margin-left: -0.04em">が</span>担<span style="margin-left: -0.03em; margin-right: -0.04em">当</span><span style="margin-left: -0.20em; margin-right: -0.10em">し</span><span style="margin-left: -0.15em; margin-right: -0.14em">ま</span><span style="margin-right: -0.02em">す</span></span></h3>
-<p style="margin: 14px 0 0; font-size: 15px; line-height: 1.95">診察のたびに医師が変わることはありません。お悩みやトラウマ、人間関係のことも、経過をよく知る同じ医師が、じっくりお話を伺います。</p>
+<p style="margin: 14px 0 0; font-size: 15px; line-height: 1.95">診察の<wbr>たびに<wbr>医師が<wbr>変わる<wbr>ことは<wbr>ありません。<wbr>お悩みや<wbr>トラウマ、<wbr>人間関係の<wbr>ことも、<wbr>経過を<wbr>よく<wbr>知る<wbr>同じ<wbr>医師が、<wbr>じっくり<wbr>お話を<wbr>伺います。</p>
 </article>
 <article style="flex: 1 1 300px; min-width: 0; position: relative; background: #FFFFFF; border-radius: 32px; padding: 48px 32px 36px">
 <span style="position: absolute; top: -18px; left: 28px; padding: 8px 20px; border-radius: 999px; background: #AB589D; color: #FFFFFF; font-size: 14px; font-weight: 500"><span style="white-space: nowrap">4<span style="margin-left: -0.04em; margin-right: -0.07em">つ</span><span style="margin-left: -0.05em; margin-right: -0.06em">の</span>専<span style="margin-left: -0.02em; margin-right: -0.02em">門</span>資格</span></span>
@@ -162,43 +169,43 @@ JR川崎駅から徒歩2分</span>
 <p style="margin: 4px 0 0; color: #9A4C8E"><span style="font-family: 'Quicksand', sans-serif; font-size: 48px; font-weight: 600">13</span><span style="font-size: 16px; margin-left: 2px">年目</span></p>
 </div>
 </div>
-<p style="margin: 14px 0 0; font-size: 15px; line-height: 1.95">長年の経験をもとに、ひとりひとりに合った治療を一緒に考えます。</p>
+<p style="margin: 14px 0 0; font-size: 15px; line-height: 1.95">長年の<wbr>経験を<wbr>もとに、<wbr>ひとりひとりに<wbr>合った<wbr>治療を<wbr>一緒に<wbr>考えます。</p>
 </article>
 </div>
 </div>
 </section>
 
-<section style="padding: clamp(72px, 7cqi, 112px) 0">
+<section id="column" style="padding: clamp(72px, 7cqi, 112px) 0">
 <div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4cqi, 40px)">
 <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
 <div>
 <p style="margin: 0; font-family: 'Quicksand', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.24em; color: #9A4C8E">COLUMN</p>
 <h2 style="margin: 6px 0 0; font-size: clamp(26px, 2.8cqi, 38px); font-weight: 500"><span><span style="margin-right: -0.13em">こ</span><span style="margin-left: -0.13em; margin-right: -0.13em">こ</span><span style="margin-left: -0.11em; margin-right: -0.12em">ろ</span><span style="margin-left: -0.05em; margin-right: -0.06em">の</span><span style="margin-left: -0.11em; margin-right: -0.12em">コ</span><span style="margin-left: -0.13em; margin-right: -0.13em">ラ</span><span style="margin-left: -0.05em; margin-right: -0.07em">ム</span></span></h2>
-<p style="margin: 10px 0 0; font-size: 16px">こころの不調や受診のことを、院長がわかりやすく解説します。</p>
+<p style="margin: 10px 0 0; font-size: 16px">こころの<wbr>不調や<wbr>受診の<wbr>ことを、<wbr>院長が<wbr>わかりやすく<wbr>解説します。</p>
 </div>
-<a class="sw" href="#" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 999px; border: 2px solid #9A4C8E; color: #9A4C8E; text-decoration: none; font-size: 15px; font-weight: 500"><span style="white-space: nowrap"><span style="margin-right: -0.12em">コ</span><span style="margin-left: -0.13em; margin-right: -0.13em">ラ</span><span style="margin-left: -0.05em; margin-right: -0.07em">ム</span>一覧<span style="margin-left: -0.07em; margin-right: -0.08em">を</span>見<span style="margin-left: -0.12em; margin-right: -0.14em">る</span></span><svg class="arw" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 18l6-6M13 6l6 6"></path></svg></a>
+<a class="sw" href="https://kawasaki-numata.jp/blog" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 999px; border: 2px solid #9A4C8E; color: #9A4C8E; text-decoration: none; font-size: 15px; font-weight: 500"><span style="white-space: nowrap"><span style="margin-right: -0.12em">コ</span><span style="margin-left: -0.13em; margin-right: -0.13em">ラ</span><span style="margin-left: -0.05em; margin-right: -0.07em">ム</span>一覧<span style="margin-left: -0.07em; margin-right: -0.08em">を</span>見<span style="margin-left: -0.12em; margin-right: -0.14em">る</span></span><svg class="arw" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 18l6-6M13 6l6 6"></path></svg></a>
 </div>
 <div style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 28px 24px">
-<a href="#" style="flex: 1 1 280px; min-width: 0; color: #4B4458; text-decoration: none">
+<a href="https://kawasaki-numata.jp/blog" style="flex: 1 1 280px; min-width: 0; color: #4B4458; text-decoration: none">
 <div style="aspect-ratio: 16 / 10; border-radius: 24px; background: #E6F4FB; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #2F6E92; font-size: 13px"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="M3 15l5-5l5 5M13 13l3-3l5 5"></path></svg>サムネイル</div>
 <div style="margin-top: 14px; display: flex; align-items: center; gap: 10px"><span style="font-family: 'Quicksand', sans-serif; font-size: 13px; font-weight: 600; color: #9A4C8E">2026.10.23</span><span style="padding: 2px 10px; border-radius: 999px; background: #F9F1F7; font-size: 12px; color: #9A4C8E">院長コラム</span></div>
-<p style="margin: 8px 0 0; font-size: 17px; font-weight: 500; line-height: 1.6">ハラスメントとは？定義・種類・原因・対策を解説</p>
+<p style="margin: 8px 0 0; font-size: 17px; font-weight: 500; line-height: 1.6">ハラスメントとは？<wbr>定義・種類・原因・対策を<wbr>解説</p>
 </a>
-<a href="#" style="flex: 1 1 280px; min-width: 0; color: #4B4458; text-decoration: none">
+<a href="https://kawasaki-numata.jp/blog" style="flex: 1 1 280px; min-width: 0; color: #4B4458; text-decoration: none">
 <div style="aspect-ratio: 16 / 10; border-radius: 24px; background: #F9F1F7; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #9A4C8E; font-size: 13px"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="M3 15l5-5l5 5M13 13l3-3l5 5"></path></svg>サムネイル</div>
 <div style="margin-top: 14px; display: flex; align-items: center; gap: 10px"><span style="font-family: 'Quicksand', sans-serif; font-size: 13px; font-weight: 600; color: #9A4C8E">2026.10.23</span><span style="padding: 2px 10px; border-radius: 999px; background: #F9F1F7; font-size: 12px; color: #9A4C8E">院長コラム</span></div>
-<p style="margin: 8px 0 0; font-size: 17px; font-weight: 500; line-height: 1.6">DV（ドメスティック・バイオレンス）とは？</p>
+<p style="margin: 8px 0 0; font-size: 17px; font-weight: 500; line-height: 1.6">DV<wbr>（ドメスティック・バイオレンス）とは？</p>
 </a>
-<a href="#" style="flex: 1 1 280px; min-width: 0; color: #4B4458; text-decoration: none">
+<a href="https://kawasaki-numata.jp/blog" style="flex: 1 1 280px; min-width: 0; color: #4B4458; text-decoration: none">
 <div style="aspect-ratio: 16 / 10; border-radius: 24px; background: #E6F4FB; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #2F6E92; font-size: 13px"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="M3 15l5-5l5 5M13 13l3-3l5 5"></path></svg>サムネイル</div>
 <div style="margin-top: 14px; display: flex; align-items: center; gap: 10px"><span style="font-family: 'Quicksand', sans-serif; font-size: 13px; font-weight: 600; color: #9A4C8E">2026.10.02</span><span style="padding: 2px 10px; border-radius: 999px; background: #F9F1F7; font-size: 12px; color: #9A4C8E">院長コラム</span></div>
-<p style="margin: 8px 0 0; font-size: 17px; font-weight: 500; line-height: 1.6">カスタマーハラスメント（カスハラ）に関する法律が施行</p>
+<p style="margin: 8px 0 0; font-size: 17px; font-weight: 500; line-height: 1.6">カスタマーハラスメント<wbr>（カスハラ）に<wbr>関する<wbr>法律が<wbr>施行</p>
 </a>
 </div>
 </div>
 </section>
 
-<section style="padding: 0 0 clamp(72px, 7cqi, 112px)">
+<section id="greeting" style="padding: 0 0 clamp(72px, 7cqi, 112px)">
 <div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4cqi, 40px)">
 <div style="background: #F9F1F7; border-radius: clamp(32px, 4cqi, 56px); padding: clamp(36px, 5cqi, 64px) clamp(24px, 5cqi, 72px); display: flex; flex-wrap: wrap; align-items: center; gap: clamp(28px, 4cqi, 64px)">
 <div style="flex: 0 1 300px; margin: 0 auto; position: relative">
@@ -210,36 +217,36 @@ JR川崎駅から徒歩2分</span>
 <p style="margin: 0; font-family: 'Quicksand', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.24em; color: #9A4C8E">GREETING</p>
 <h2 style="margin: 6px 0 0; font-size: clamp(26px, 2.8cqi, 38px); font-weight: 500"><span>ご<span style="margin-left: -0.06em; margin-right: -0.06em">あ</span><span style="margin-left: -0.06em; margin-right: -0.04em">い</span><span style="margin-left: -0.11em; margin-right: -0.15em">さ</span><span style="margin-left: -0.04em; margin-right: -0.07em">つ</span></span></h2>
 <div style="margin-top: 20px; font-size: 16px; line-height: 2.05; display: flex; flex-direction: column; gap: 14px">
-<p style="margin: 0">はじめまして。川崎沼田クリニック院長の沼田真一です。精神科医になって28年、川崎で開業して13年目を迎えました。</p>
-<p style="margin: 0">こころの不調は目に見えにくいぶん、人に話しにくいものです。「こんなことで受診していいのかな」と迷ったまま、ひとりで抱えている方も少なくありません。</p>
-<p style="margin: 0">当院では、初診から通院を終えるまで私が担当します。同じ医師だからこそ、話しやすい関係を少しずつつくれると考えています。少し話を聞いてほしい、そんな気持ちのときも、どうぞ気軽にお越しください。</p>
+<p style="margin: 0">はじめまして。<wbr>川崎沼田クリニック院長の<wbr>沼田真一です。<wbr>精神科医に<wbr>なって<wbr>28年、<wbr>川崎で<wbr>開業して<wbr>13年目を<wbr>迎えました。</p>
+<p style="margin: 0">こころの<wbr>不調は<wbr>目に<wbr>見えに<wbr>くいぶん、<wbr>人に<wbr>話しにくい<wbr>ものです。<wbr>「こんな<wbr>ことで<wbr>受診していいのかな」と<wbr>迷ったまま、<wbr>ひとりで<wbr>抱えている<wbr>方も<wbr>少なく<wbr>ありません。</p>
+<p style="margin: 0">当院では、<wbr>初診から<wbr>通院を<wbr>終えるまで<wbr>私が<wbr>担当します。<wbr>同じ<wbr>医師だからこそ、<wbr>話しやすい<wbr>関係を<wbr>少し<wbr>ずつつくれると<wbr>考えています。<wbr>少し<wbr>話を<wbr>聞いてほしい、<wbr>そんな<wbr>気持ちの<wbr>ときも、<wbr>どうぞ<wbr>気軽に<wbr>お越しください。</p>
 </div>
 <div style="margin-top: 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
-<p style="margin: 0; font-size: 15px">川崎沼田クリニック 院長　<span style="font-size: 20px; font-weight: 500">沼田 真一</span></p>
-<a class="sw sw-light" href="#" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 999px; background: #9A4C8E; color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 500"><span style="white-space: nowrap">院長紹介<span style="margin-left: -0.02em; margin-right: -0.02em">へ</span></span><svg class="arw" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 18l6-6M13 6l6 6"></path></svg></a>
+<p style="margin: 0; font-size: 15px">川崎沼田クリニック 院長　<span style="font-size: 20px; font-weight: 500">沼田 真<wbr>一</span></p>
+<a class="sw sw-light" href="https://kawasaki-numata.jp/" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 999px; background: #9A4C8E; color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 500"><span style="white-space: nowrap">院長紹介<span style="margin-left: -0.02em; margin-right: -0.02em">へ</span></span><svg class="arw" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 18l6-6M13 6l6 6"></path></svg></a>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<section style="background: #E6F4FB; padding: clamp(64px, 6cqi, 96px) 0">
+<section id="hours" style="background: #E6F4FB; padding: clamp(64px, 6cqi, 96px) 0">
 <div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4cqi, 40px); display: flex; flex-wrap: wrap; gap: 24px">
 <div style="flex: 1 1 420px; min-width: 0; background: #FFFFFF; border-radius: 32px; padding: clamp(24px, 3cqi, 36px)">
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
 <h2 style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 500"><span style="width: 48px; height: 48px; border-radius: 50%; background: #F9F1F7; color: #9A4C8E; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3H4a4 4 0 0 0 2-3v-3a7 7 0 0 1 4-6"></path><path d="M9 17v1a3 3 0 0 0 6 0v-1"></path></svg></span><span style="white-space: nowrap"><span style="margin-right: -0.05em">お</span><span style="margin-right: -0.02em">知</span><span style="margin-left: -0.15em; margin-right: -0.13em">ら</span><span style="margin-right: -0.02em">せ</span></span></h2>
-<a class="sw" href="#" style="padding: 8px 18px; border-radius: 999px; background: #F9F1F7; color: #9A4C8E; text-decoration: none; font-size: 14px"><span style="white-space: nowrap">一覧<span style="margin-left: -0.02em; margin-right: -0.02em">へ</span></span></a>
+<a class="sw" href="https://kawasaki-numata.jp/" style="padding: 8px 18px; border-radius: 999px; background: #F9F1F7; color: #9A4C8E; text-decoration: none; font-size: 14px"><span style="white-space: nowrap">一覧<span style="margin-left: -0.02em; margin-right: -0.02em">へ</span></span></a>
 </div>
 <ul style="list-style: none; margin: 18px 0 0; padding: 0">
-<li style="display: flex; flex-wrap: wrap; gap: 4px 18px; padding: 16px 0; border-bottom: 1.5px dashed #EEDCEA"><span style="font-family: 'Quicksand', sans-serif; font-size: 14px; font-weight: 600; color: #9A4C8E">2025.08.07</span><a href="#" style="color: #4B4458; text-decoration: none; font-size: 15px">ご予約時のご案内</a></li>
-<li style="display: flex; flex-wrap: wrap; gap: 4px 18px; padding: 16px 0; border-bottom: 1.5px dashed #EEDCEA"><span style="font-family: 'Quicksand', sans-serif; font-size: 14px; font-weight: 600; color: #9A4C8E">2025.05.12</span><a href="#" style="color: #4B4458; text-decoration: none; font-size: 15px">クレジットカード決済の導入について</a></li>
-<li style="display: flex; flex-wrap: wrap; gap: 4px 18px; padding: 16px 0; border-bottom: 1.5px dashed #EEDCEA"><span style="font-family: 'Quicksand', sans-serif; font-size: 14px; font-weight: 600; color: #9A4C8E">2023.11.15</span><a href="#" style="color: #4B4458; text-decoration: none; font-size: 15px">院長の執筆論文について</a></li>
+<li style="display: flex; flex-wrap: wrap; gap: 4px 18px; padding: 16px 0; border-bottom: 1.5px dashed #EEDCEA"><span class="nd" style="display: inline-block; min-width: 6.4em; font-family: 'Quicksand', sans-serif; font-size: 14px; font-weight: 600; color: #9A4C8E">2025.08.07</span><a class="nt" href="https://kawasaki-numata.jp/" style="color: #4B4458; text-decoration: none; font-size: 15px">ご予約時の<wbr>ご案内</a></li>
+<li style="display: flex; flex-wrap: wrap; gap: 4px 18px; padding: 16px 0; border-bottom: 1.5px dashed #EEDCEA"><span class="nd" style="display: inline-block; min-width: 6.4em; font-family: 'Quicksand', sans-serif; font-size: 14px; font-weight: 600; color: #9A4C8E">2025.05.12</span><a class="nt" href="https://kawasaki-numata.jp/" style="color: #4B4458; text-decoration: none; font-size: 15px">クレジットカード決済の<wbr>導入に<wbr>ついて</a></li>
+<li style="display: flex; flex-wrap: wrap; gap: 4px 18px; padding: 16px 0; border-bottom: 1.5px dashed #EEDCEA"><span class="nd" style="display: inline-block; min-width: 6.4em; font-family: 'Quicksand', sans-serif; font-size: 14px; font-weight: 600; color: #9A4C8E">2023.11.15</span><a class="nt" href="https://kawasaki-numata.jp/" style="color: #4B4458; text-decoration: none; font-size: 15px">院長の<wbr>執筆論文に<wbr>ついて</a></li>
 </ul>
 </div>
 <div style="flex: 1 1 420px; min-width: 0; background: #FFFFFF; border-radius: 32px; padding: clamp(24px, 3cqi, 36px)">
 <h2 style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 500"><span style="width: 48px; height: 48px; border-radius: 50%; background: #F9F1F7; color: #9A4C8E; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span><span style="white-space: nowrap">診療<span style="margin-left: -0.02em">時</span><span style="margin-left: -0.02em; margin-right: -0.02em">間</span></span></h2>
 <div style="margin-top: 18px; overflow-x: auto">
-<table style="width: 100%; min-width: 320px; border-collapse: collapse; text-align: center; font-size: 15px">
+<table class="hrs" style="width: 100%; min-width: 0; border-collapse: collapse; text-align: center; font-size: 15px">
 <thead><tr style="color: #9A4C8E"><th scope="col" style="padding: 8px 4px; font-weight: 500; text-align: left; font-size: 13px">完全予約制</th><th scope="col" style="padding: 8px 2px; font-weight: 500">月</th><th scope="col" style="padding: 8px 2px; font-weight: 500">火</th><th scope="col" style="padding: 8px 2px; font-weight: 500">水</th><th scope="col" style="padding: 8px 2px; font-weight: 500">木</th><th scope="col" style="padding: 8px 2px; font-weight: 500">金</th><th scope="col" style="padding: 8px 2px; font-weight: 500">土</th><th scope="col" style="padding: 8px 2px; font-weight: 500">日祝</th></tr></thead>
 <tbody>
 <tr style="border-top: 1.5px solid #F4E9F1"><th scope="row" style="padding: 14px 4px; text-align: left; font-family: 'Quicksand', sans-serif; font-weight: 600; color: #9A4C8E; white-space: nowrap">9:30–12:30</th><td style="color: #9A4C8E">●</td><td style="color: #9A4C8E">●</td><td style="color: #9A4C8E">●</td><td style="color: #8C8499">―</td><td style="color: #9A4C8E">●</td><td style="color: #2F6E92">◎</td><td style="color: #8C8499">―</td></tr>
@@ -248,40 +255,40 @@ JR川崎駅から徒歩2分</span>
 </table>
 </div>
 <ul style="margin: 16px 0 0; padding: 0 0 0 1.2em; font-size: 13px; line-height: 1.9">
-<li>◎土曜は 9:00–12:00／14:00–16:45 です。</li>
-<li>完全予約制です。初診はお電話でご予約ください（ネット予約は受け付けていません）。</li>
-<li>休診日：木曜・日曜・祝日</li>
+<li>◎土曜は<wbr> 9:00–12:00／14:00–16:45 です。</li>
+<li>完全予<wbr>約制です。<wbr>初診は<wbr>お電話で<wbr>ご予約ください<wbr>（ネット予約は<wbr>受け付けていません）。</li>
+<li>休<wbr>診日：木曜・日曜・祝日</li>
 </ul>
 </div>
 </div>
 </section>
 
-<section style="padding: clamp(72px, 7cqi, 112px) 0">
+<section id="check" style="padding: clamp(72px, 7cqi, 112px) 0">
 <div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4cqi, 40px)">
 <div style="text-align: center">
 <p style="margin: 0; font-family: 'Quicksand', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.24em; color: #9A4C8E">CHECK</p>
 <h2 style="margin: 6px 0 0; font-size: clamp(24px, 2.8cqi, 38px); font-weight: 500"><span><span style="margin-right: -0.13em">こ</span><span style="margin-left: -0.06em; margin-right: -0.06em">ん</span><span style="margin-left: -0.06em; margin-right: -0.08em">な</span><span style="margin-left: -0.13em; margin-right: -0.13em">こ</span><span style="margin-left: -0.16em; margin-right: -0.14em">と</span><span style="margin-left: -0.06em">で</span><span style="margin-left: -0.03em; margin-right: -0.65em">、</span></span><span style="display: inline-block; white-space: nowrap"><span><span style="margin-right: -0.05em">お</span>悩<span style="margin-left: -0.04em; margin-right: -0.04em">み</span><span style="margin-left: -0.06em">で</span><span style="margin-left: -0.07em; margin-right: -0.05em">は</span><span style="margin-left: -0.06em; margin-right: -0.06em">あ</span><span style="margin-left: -0.20em; margin-right: -0.19em">り</span><span style="margin-left: -0.15em; margin-right: -0.14em">ま</span><span style="margin-right: -0.02em">せ</span><span style="margin-left: -0.06em; margin-right: -0.06em">ん</span><span style="margin-left: -0.04em; margin-right: -0.02em">か</span></span></span></h2>
 </div>
 <ul style="list-style: none; margin: 40px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 14px">
-<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>夜なかなか眠れない、途中で何度も目が覚める</li>
-<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>気分の落ち込みが2週間以上続いている</li>
-<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>好きだったことを、楽しいと感じられない</li>
-<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>急に動悸や息苦しさに襲われることがある</li>
-<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>職場や学校に行こうとすると、体調が悪くなる</li>
-<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>人間関係のことが、頭から離れない</li>
-<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>過去のつらい出来事を、何度も思い出してしまう</li>
-<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>イライラや不安を、自分では抑えられない</li>
-<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>検査では異常がないのに、頭痛やめまいが続く</li>
+<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>夜なかなか<wbr>眠れない、<wbr>途中で<wbr>何度も<wbr>目が<wbr>覚める</li>
+<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>気分の<wbr>落ち込みが<wbr>2週間以上<wbr>続いている</li>
+<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>好きだった<wbr>ことを、<wbr>楽しいと<wbr>感じられない</li>
+<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>急に<wbr>動悸や<wbr>息苦しさに<wbr>襲われる<wbr>ことがある</li>
+<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>職場や<wbr>学校に<wbr>行こうと<wbr>すると、<wbr>体調が<wbr>悪くなる</li>
+<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>人間関係の<wbr>ことが、<wbr>頭から<wbr>離れない</li>
+<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>過去の<wbr>つらい出来事を、<wbr>何度も<wbr>思い出してしまう</li>
+<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>イライラや<wbr>不安を、<wbr>自分では<wbr>抑えられない</li>
+<li style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 20px; border: 1.5px solid #EEDCEA; font-size: 15px; line-height: 1.6"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10-10"></path></svg></span>検査では<wbr>異常が<wbr>ないのに、<wbr>頭痛やめまいが<wbr>続く</li>
 </ul>
 <div style="margin-top: 40px; text-align: center">
-<p style="margin: 0; font-size: clamp(17px, 1.6cqi, 20px); font-weight: 500; color: #9A4C8E">ひとつでも当てはまるときは、<span style="display: inline-block; white-space: nowrap">ひとりで抱えず、まずはご相談ください。</span></p>
-<a class="sw sw-light" href="#" style="margin-top: 22px; display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 999px; background: #9A4C8E; color: #FFFFFF; text-decoration: none; font-size: 16px; font-weight: 500"><span style="white-space: nowrap">診療案<span style="margin-left: -0.03em; margin-right: -0.03em">内</span><span style="margin-left: -0.07em; margin-right: -0.08em">を</span>見<span style="margin-left: -0.12em; margin-right: -0.14em">る</span></span><svg class="arw" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 18l6-6M13 6l6 6"></path></svg></a>
+<p style="margin: 0; font-size: clamp(17px, 1.6cqi, 20px); font-weight: 500; color: #9A4C8E">ひとつでも<wbr>当てはまるときは、<span style="display: inline-block; white-space: nowrap">ひとりで<wbr>抱えず、<wbr>まずは<wbr>ご相談ください。</span></p>
+<a class="sw sw-light" href="https://kawasaki-numata.jp/" style="margin-top: 22px; display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 999px; background: #9A4C8E; color: #FFFFFF; text-decoration: none; font-size: 16px; font-weight: 500"><span style="white-space: nowrap">診療案<span style="margin-left: -0.03em; margin-right: -0.03em">内</span><span style="margin-left: -0.07em; margin-right: -0.08em">を</span>見<span style="margin-left: -0.12em; margin-right: -0.14em">る</span></span><svg class="arw" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 18l6-6M13 6l6 6"></path></svg></a>
 </div>
 </div>
 </section>
 
 <svg aria-hidden="true" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display: block; width: 100%; height: 80px"><path d="M0 40 C 320 0 560 80 900 44 S 1300 10 1440 36 V80 H0 Z" fill="#F9F1F7"></path></svg>
-<section style="background: #F9F1F7; padding: 24px 0 clamp(72px, 7cqi, 112px)">
+<section id="first" style="background: #F9F1F7; padding: 24px 0 clamp(72px, 7cqi, 112px)">
 <div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4cqi, 40px)">
 <div style="text-align: center">
 <p style="margin: 0; font-family: 'Quicksand', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.24em; color: #9A4C8E">FIRST VISIT</p>
@@ -291,44 +298,44 @@ JR川崎駅から徒歩2分</span>
 <li style="flex: 1 1 280px; min-width: 0; background: #FFFFFF; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
 <span style="align-self: flex-start; padding: 4px 14px; border-radius: 999px; background: #F9E09A; font-family: 'Quicksand', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; color: #4B4458">STEP 1</span>
 <h3 style="margin: 0; font-size: 20px; font-weight: 500; color: #9A4C8E"><span>ご<span style="margin-right: -0.02em">予</span><span style="margin-right: -0.02em">約</span></span></h3>
-<p style="margin: 0; font-size: 15px; line-height: 1.9">お電話でご予約ください。スタッフが今の状態を伺い、日時をご案内します。</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.9">お電話で<wbr>ご予約ください。<wbr>スタッフが<wbr>今の<wbr>状態を<wbr>伺い、<wbr>日時を<wbr>ご案内します。</p>
 </li>
 <li style="flex: 1 1 280px; min-width: 0; background: #FFFFFF; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
 <span style="align-self: flex-start; padding: 4px 14px; border-radius: 999px; background: #E6F4FB; font-family: 'Quicksand', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; color: #2F6E92">STEP 2</span>
 <h3 style="margin: 0; font-size: 20px; font-weight: 500; color: #9A4C8E"><span>ご来<span style="margin-left: -0.02em">院</span></span></h3>
-<p style="margin: 0; font-size: 15px; line-height: 1.9">受付で問診票をご記入いただきます。</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.9">受付で<wbr>問診票を<wbr>ご記入いただきます。</p>
 </li>
 <li style="flex: 1 1 280px; min-width: 0; background: #FFFFFF; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
 <span style="align-self: flex-start; padding: 4px 14px; border-radius: 999px; background: #EEDCEA; font-family: 'Quicksand', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; color: #7A3B70">STEP 3</span>
 <h3 style="margin: 0; font-size: 20px; font-weight: 500; color: #9A4C8E">診察</h3>
-<p style="margin: 0; font-size: 15px; line-height: 1.9">院長がお話を伺い、今後の治療を一緒に考えます。</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.9">院長が<wbr>お話を<wbr>伺い、<wbr>今後の<wbr>治療を<wbr>一緒に<wbr>考えます。</p>
 </li>
 </ol>
 <div style="margin-top: 20px; background: #FFFFFF; border-radius: 28px; padding: 22px 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px">
-<p style="margin: 0; font-size: 15px; font-weight: 500; color: #9A4C8E">お持ちいただくもの</p>
+<p style="margin: 0; font-size: 15px; font-weight: 500; color: #9A4C8E">お持ちいただく<wbr>もの</p>
 <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px">
-<li style="padding: 6px 14px; border-radius: 999px; background: #F9F1F7; font-size: 14px">マイナ保険証または資格確認書</li>
+<li style="padding: 6px 14px; border-radius: 999px; background: #F9F1F7; font-size: 14px">マイナ保険証または<wbr>資格確認書</li>
 <li style="padding: 6px 14px; border-radius: 999px; background: #F9F1F7; font-size: 14px">お薬手帳</li>
-<li style="padding: 6px 14px; border-radius: 999px; background: #F9F1F7; font-size: 14px">紹介状（お持ちの方）</li>
+<li style="padding: 6px 14px; border-radius: 999px; background: #F9F1F7; font-size: 14px">紹介状<wbr>（お持ちの<wbr>方）</li>
 </ul>
 <div style="margin-left: auto; display: flex; flex-wrap: wrap; gap: 10px">
-<a class="sw" href="#" style="padding: 10px 20px; border-radius: 999px; border: 2px solid #9A4C8E; color: #9A4C8E; text-decoration: none; font-size: 14px; font-weight: 500"><span style="white-space: nowrap"><span style="margin-right: -0.02em">初</span>診<span style="margin-left: -0.05em; margin-right: -0.06em">の</span>流<span style="margin-left: -0.03em">れ</span><span style="margin-left: -0.07em; margin-right: -0.08em">を</span>詳<span style="margin-left: -0.20em; margin-right: -0.10em">し</span><span style="margin-left: -0.20em; margin-right: -0.22em">く</span>見<span style="margin-left: -0.12em; margin-right: -0.14em">る</span></span></a>
-<a class="sw" href="#" style="padding: 10px 20px; border-radius: 999px; border: 2px solid #9A4C8E; color: #9A4C8E; text-decoration: none; font-size: 14px; font-weight: 500"><span style="white-space: nowrap"><span style="margin-right: -0.11em">よ</span><span style="margin-left: -0.20em; margin-right: -0.22em">く</span><span style="margin-left: -0.06em; margin-right: -0.06em">あ</span><span style="margin-left: -0.12em; margin-right: -0.14em">る</span>質<span style="margin-left: -0.02em; margin-right: -0.02em">問</span></span></a>
+<a class="sw" href="https://kawasaki-numata.jp/" style="padding: 10px 20px; border-radius: 999px; border: 2px solid #9A4C8E; color: #9A4C8E; text-decoration: none; font-size: 14px; font-weight: 500"><span style="white-space: nowrap"><span style="margin-right: -0.02em">初</span>診<span style="margin-left: -0.05em; margin-right: -0.06em">の</span>流<span style="margin-left: -0.03em">れ</span><span style="margin-left: -0.07em; margin-right: -0.08em">を</span>詳<span style="margin-left: -0.20em; margin-right: -0.10em">し</span><span style="margin-left: -0.20em; margin-right: -0.22em">く</span>見<span style="margin-left: -0.12em; margin-right: -0.14em">る</span></span></a>
+<a class="sw" href="https://kawasaki-numata.jp/" style="padding: 10px 20px; border-radius: 999px; border: 2px solid #9A4C8E; color: #9A4C8E; text-decoration: none; font-size: 14px; font-weight: 500"><span style="white-space: nowrap"><span style="margin-right: -0.11em">よ</span><span style="margin-left: -0.20em; margin-right: -0.22em">く</span><span style="margin-left: -0.06em; margin-right: -0.06em">あ</span><span style="margin-left: -0.12em; margin-right: -0.14em">る</span>質<span style="margin-left: -0.02em; margin-right: -0.02em">問</span></span></a>
 </div>
 </div>
 
-<div style="margin-top: clamp(56px, 6cqi, 88px); background: #FFFFFF; border-radius: clamp(28px, 3cqi, 40px); padding: clamp(20px, 3cqi, 32px); display: flex; flex-wrap: wrap; gap: clamp(20px, 3cqi, 40px)">
-<div style="flex: 1 1 420px; min-width: 0; min-height: 320px; border-radius: 28px; background: #E6F4FB; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: #2F6E92; font-size: 14px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="11" r="3"></circle><path d="M17.66 16.66l-4.24 4.24a2 2 0 0 1-2.83 0l-4.25-4.24a8 8 0 1 1 11.32 0z"></path></svg>Googleマップ</div>
+<div id="access" style="margin-top: clamp(56px, 6cqi, 88px); background: #FFFFFF; border-radius: clamp(28px, 3cqi, 40px); padding: clamp(20px, 3cqi, 32px); display: flex; flex-wrap: wrap; gap: clamp(20px, 3cqi, 40px)">
+<div style="position: relative; overflow: hidden; flex: 1 1 420px; min-width: 0; min-height: 320px; border-radius: 28px; background: #E6F4FB; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: #2F6E92; font-size: 14px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="11" r="3"></circle><path d="M17.66 16.66l-4.24 4.24a2 2 0 0 1-2.83 0l-4.25-4.24a8 8 0 1 1 11.32 0z"></path></svg>Googleマップ<iframe title="川崎沼田クリニックの地図" src="https://www.google.com/maps?q=%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E5%B7%9D%E5%B4%8E%E5%B8%82%E5%B7%9D%E5%B4%8E%E5%8C%BA%E7%A0%82%E5%AD%902-11-20&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; border: 0"></iframe></div>
 <div style="flex: 1 1 380px; min-width: 0; padding: clamp(4px, 1cqi, 16px)">
 <p style="margin: 0; font-family: 'Quicksand', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.24em; color: #9A4C8E">ACCESS</p>
 <h2 style="margin: 6px 0 0; font-size: clamp(26px, 2.8cqi, 38px); font-weight: 500"><span><span style="margin-right: -0.08em">ア</span><span style="margin-left: -0.12em; margin-right: -0.11em">ク</span><span style="margin-right: -0.06em">セ</span><span style="margin-left: -0.06em; margin-right: -0.07em">ス</span></span></h2>
-<p style="margin: 16px 0 0; display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 999px; background: #E6F4FB; color: #2F6E92; font-size: 17px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="14" rx="3"></rect><path d="M5 11h14"></path><path d="M8 21l2-4M16 21l-2-4"></path></svg>JR川崎駅から徒歩2分</p>
+<p style="margin: 16px 0 0; display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 999px; background: #E6F4FB; color: #2F6E92; font-size: 17px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="14" rx="3"></rect><path d="M5 11h14"></path><path d="M8 21l2-4M16 21l-2-4"></path></svg>JR川崎駅から<wbr>徒歩2分</p>
 <dl style="margin: 22px 0 0; display: flex; flex-direction: column; gap: 0; font-size: 15px">
-<div style="display: flex; gap: 16px; padding: 14px 0; border-top: 1.5px solid #F4E9F1"><dt style="flex: 0 0 72px; color: #9A4C8E; font-weight: 500">住所</dt><dd style="margin: 0">〒210-0006<br>神奈川県川崎市川崎区砂子2-11-20<br>加瀬ビル133 4F</dd></div>
-<div style="display: flex; gap: 16px; padding: 14px 0; border-top: 1.5px solid #F4E9F1"><dt style="flex: 0 0 72px; color: #9A4C8E; font-weight: 500">電車</dt><dd style="margin: 0">JR川崎駅 東口（アゼリア38番出口）から徒歩2分<br>京急川崎駅から徒歩2分</dd></div>
+<div style="display: flex; gap: 16px; padding: 14px 0; border-top: 1.5px solid #F4E9F1"><dt style="flex: 0 0 72px; color: #9A4C8E; font-weight: 500">住所</dt><dd style="margin: 0">〒210-0006<br>神奈川県川崎市川崎区砂子<span style="white-space:nowrap">2-11-20</span><br><span style="white-space:nowrap">加瀬ビル133 4F</span></dd></div>
+<div style="display: flex; gap: 16px; padding: 14px 0; border-top: 1.5px solid #F4E9F1"><dt style="flex: 0 0 72px; color: #9A4C8E; font-weight: 500">電車</dt><dd style="margin: 0">JR川崎駅 <wbr>東口<wbr>（アゼリア38番出口）から<wbr>徒歩2分<br>京急川崎駅から<wbr>徒歩2分</dd></div>
 <div style="display: flex; gap: 16px; padding: 14px 0; border-top: 1.5px solid #F4E9F1; border-bottom: 1.5px solid #F4E9F1"><dt style="flex: 0 0 72px; color: #9A4C8E; font-weight: 500">TEL</dt><dd style="margin: 0; font-family: 'Quicksand', sans-serif; font-weight: 600">044-589-5377</dd></div>
 </dl>
-<a class="sw sw-light" href="#" style="margin-top: 22px; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 999px; background: #9A4C8E; color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 500"><span style="white-space: nowrap">Google<span style="margin-left: -0.05em; margin-right: -0.08em">マ</span><span style="margin-left: -0.16em; margin-right: -0.17em">ッ</span><span style="margin-left: -0.12em">プ</span><span style="margin-left: -0.06em">で</span>見<span style="margin-left: -0.12em; margin-right: -0.14em">る</span></span><svg class="arw-ext" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6M11 13l9-9M15 4h5v5"></path></svg></a>
+<a class="sw sw-light" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E5%B7%9D%E5%B4%8E%E5%B8%82%E5%B7%9D%E5%B4%8E%E5%8C%BA%E7%A0%82%E5%AD%902-11-20" target="_blank" rel="noopener" style="margin-top: 22px; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 999px; background: #9A4C8E; color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 500"><span style="white-space: nowrap">Google<span style="margin-left: -0.05em; margin-right: -0.08em">マ</span><span style="margin-left: -0.16em; margin-right: -0.17em">ッ</span><span style="margin-left: -0.12em">プ</span><span style="margin-left: -0.06em">で</span>見<span style="margin-left: -0.12em; margin-right: -0.14em">る</span></span><svg class="arw-ext" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6M11 13l9-9M15 4h5v5"></path></svg></a>
 </div>
 </div>
 </div>
@@ -339,17 +346,17 @@ JR川崎駅から徒歩2分</span>
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px">
 <div style="flex: 1 1 320px; min-width: 0">
 <img src="assets/img/logo.webp" alt="川崎沼田クリニック" style="display: block; height: 44px; width: auto; max-width: 100%">
-<p style="margin: 14px 0 0; font-size: 14px; line-height: 1.9">〒210-0006 神奈川県川崎市川崎区砂子2-11-20 加瀬ビル133 4F<br>JR川崎駅東口・京急川崎駅から徒歩2分<br>TEL <span style="font-family: 'Quicksand', sans-serif; font-weight: 600">044-589-5377</span>（予約制）</p>
+<p style="margin: 14px 0 0; font-size: 14px; line-height: 1.9">〒210-0006 神奈川県川崎市川崎区砂子<span style="white-space:nowrap">2-11-20</span> <span style="white-space:nowrap">加瀬ビル133 4F</span><br>JR川崎駅<wbr>東口・京急川崎駅から<wbr>徒歩2分<br>TEL <span style="font-family: 'Quicksand', sans-serif; font-weight: 600">044-589-5377</span>（予約制）</p>
 </div>
 <nav aria-label="フッターナビ" style="flex: 1 1 360px; min-width: 0; display: flex; flex-wrap: wrap; gap: 12px 28px; align-content: flex-start; font-size: 14px">
-<a href="#" style="color: #4B4458; text-decoration: none">ホーム</a>
-<a href="#" style="color: #4B4458; text-decoration: none">初めての方へ</a>
-<a href="#" style="color: #4B4458; text-decoration: none">院長紹介</a>
-<a href="#" style="color: #4B4458; text-decoration: none">診療案内</a>
-<a href="#" style="color: #4B4458; text-decoration: none">診療時間・アクセス</a>
-<a href="#" style="color: #4B4458; text-decoration: none">コラム</a>
-<a href="#" style="color: #4B4458; text-decoration: none">よくある質問</a>
-<a href="#" style="color: #4B4458; text-decoration: none">プライバシーポリシー</a>
+<a href="./" style="color: #4B4458; text-decoration: none">ホーム</a>
+<a href="#first" style="color: #4B4458; text-decoration: none">初めての方へ</a>
+<a href="#greeting" style="color: #4B4458; text-decoration: none">院長紹介</a>
+<a href="#check" style="color: #4B4458; text-decoration: none">診療案内</a>
+<a href="#access" style="color: #4B4458; text-decoration: none">診療時間・アクセス</a>
+<a href="#column" style="color: #4B4458; text-decoration: none">コラム</a>
+<a href="#first" style="color: #4B4458; text-decoration: none">よくある質問</a>
+<a href="https://kawasaki-numata.jp/" style="color: #4B4458; text-decoration: none">プライバシーポリシー</a>
 </nav>
 </div>
 <p style="margin: 40px 0 0; padding-top: 20px; border-top: 1px solid #F4E9F1; font-family: 'Quicksand', sans-serif; font-size: 12px; color: #6B6170">© 川崎沼田クリニック</p>
@@ -358,15 +365,15 @@ JR川崎駅から徒歩2分</span>
 
 <div style="position: sticky; bottom: 20px; height: 0; z-index: 40">
 <div style="position: absolute; right: clamp(12px, 2cqi, 28px); bottom: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 12px">
-<a class="sw sw-light" href="#top" aria-label="ページの先頭へ戻る" style="width: 56px; height: 56px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; line-height: 1"><svg class="arw-up" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14l6-6l6 6"></path></svg><span aria-hidden="true" style="font-family: 'Quicksand', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em">TOP</span></a>
+<a class="sw sw-light pt" href="#top" aria-label="ページの先頭へ戻る" style="width: 56px; height: 56px; border-radius: 50%; background: #9A4C8E; color: #FFFFFF; text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; line-height: 1"><svg class="arw-up" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14l6-6l6 6"></path></svg><span aria-hidden="true" style="font-family: 'Quicksand', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em">TOP</span></a>
 
 <div style="display: flex; align-items: center; gap: 4px; padding: 8px 8px 8px 10px; border-radius: 999px; background: #FFFFFF; border: 2px solid #C99BC5">
 <a href="https://blog.kawasaki-numata.jp/" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; color: #4B4458; text-decoration: none; padding-right: 6px">
 <span style="width: 44px; height: 44px; border-radius: 50%; background: #7EC4E6; color: #17405A; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"></path><path d="M9 4v16M13 8h2M13 12h2"></path></svg></span>
-<span style="display: flex; flex-direction: column; line-height: 1.35"><span style="font-size: 11px; color: #9A4C8E">院長ブログ</span><span style="font-size: 15px; font-weight: 500">こころ、こんにちは。</span></span>
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9A4C8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="外部サイト" role="img"><path d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6M11 13l9-9M15 4h5v5"></path></svg>
+<span style="display: flex; flex-direction: column; line-height: 1.35"><span class="bb-sub" style="font-size: 11px; color: #9A4C8E">院長ブログ</span><span style="font-size: 15px; font-weight: 500">こころ、こんにちは。</span></span>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="bb-ext" stroke="#9A4C8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="外部サイト" role="img"><path d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6M11 13l9-9M15 4h5v5"></path></svg>
 </a>
-<button type="button" class="js-blog-close" aria-label="バナーを閉じる" style="width: 32px; height: 32px; border-radius: 50%; border: 0; background: #F9F1F7; color: #9A4C8E; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg></button>
+<button type="button" class="js-blog-close" aria-label="バナーを閉じる" style="width: 44px; height: 44px; margin: -6px -6px -6px -2px; border-radius: 50%; border: 0; background: radial-gradient(circle, #F9F1F7 15px, transparent 16px); color: #9A4C8E; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg></button>
 </div>
 
 </div>
