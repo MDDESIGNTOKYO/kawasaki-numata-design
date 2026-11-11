@@ -73,21 +73,34 @@ table { border-collapse: collapse; }
 .header__menu { display: none; }
 .drawer { display: none; }
 
-/* ---------- FV：空＋紫の面 ---------- */
-.fv { position: relative; background: var(--white); }
-.fv__sky { position: relative; height: clamp(480px, 44vw, 640px); background: #5DB4E8 url(../img/sky.jpg) center 30% / cover no-repeat; overflow: hidden; }
-.fv__director { position: absolute; right: 0; bottom: 0; height: 80%; width: auto; max-width: none; }
-.fv__name { position: absolute; right: 0; bottom: 0; background: var(--plum); color: var(--white); padding: 10px 24px; font-size: 17px; font-weight: 700; letter-spacing: .14em; }
-.fv__name span { font-size: 12px; margin-right: 10px; color: var(--gold); }
-.fv__panel { position: relative; z-index: 2; width: min(620px, calc(100% - 48px)); margin: -360px 0 0 max(24px, calc((100vw - 1200px) / 2 + 24px)); background: var(--plum); color: var(--white); padding: 44px 48px 48px; border-top: 4px solid var(--gold); }
-.fv__brand { font-size: 14px; color: var(--gold); letter-spacing: .2em; }
-.fv__title { margin-top: 12px; font-size: clamp(30px, 3vw, 42px); font-weight: 700; line-height: 1.5; letter-spacing: .03em; }
-.fv__lead { margin-top: 18px; font-size: 16px; line-height: 1.95; color: rgba(255,255,255,.9); }
-.fv__btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-.fv__facts { width: min(var(--wrap), calc(100% - 64px)); margin: 0 auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; padding: 36px 0 8px; }
-.fv__facts li { display: flex; gap: 14px; align-items: center; padding: 16px 18px; border: 1px solid var(--sky-line); background: var(--sky-pale); font-size: 13px; color: var(--ink-sub); line-height: 1.6; }
-.fv__facts .icon { font-size: 34px; color: var(--sky); stroke-width: 1.6; }
-.fv__facts strong { display: block; font-size: 17px; color: var(--plum); letter-spacing: .06em; }
+/* ---------- FV（共通） ---------- */
+.fv__stage { position: relative; overflow: hidden; background: #5DB4E8 url(../img/sky.jpg) center 35% / cover no-repeat; }
+.fv__inner { position: relative; width: min(1200px, calc(100% - 64px)); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); min-height: clamp(460px, 38vw, 540px); padding: 44px 0; }
+.fv__panel { position: relative; z-index: 2; align-self: center; }
+.fv__brand { font-size: 14px; letter-spacing: .2em; }
+.fv__title { margin-top: 12px; font-size: clamp(30px, 2.9vw, 42px); font-weight: 700; line-height: 1.5; letter-spacing: .03em; }
+.fv__lead { margin-top: 16px; font-size: 16px; line-height: 1.95; }
+.fv__btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.fv__person { position: relative; margin-bottom: -44px; }
+.fv__director { position: absolute; left: 50%; bottom: 0; transform: translateX(-46%); height: 96%; width: auto; max-width: none; }
+.fv__name { position: absolute; right: 0; bottom: 24px; background: var(--white); color: var(--ink); padding: 8px 18px; font-size: 16px; font-weight: 700; letter-spacing: .14em; }
+.fv__name span { font-size: 12px; margin-right: 10px; color: var(--purple); }
+.fv__facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.fv__facts li { display: flex; gap: 14px; align-items: center; justify-content: center; padding: 20px 18px; font-size: 13px; line-height: 1.6; }
+.fv__facts .icon { font-size: 32px; stroke-width: 1.6; }
+.fv__facts strong { display: block; font-size: 17px; letter-spacing: .06em; }
+
+/* 空の中に白いパネル＋紫の帯 */
+.fv--a .fv__panel { background: var(--white); color: var(--ink); padding: 40px 44px 44px; border-left: 6px solid var(--plum); }
+.fv--a .fv__brand { color: var(--purple); }
+.fv--a .fv__title { color: var(--plum); }
+.fv--a .fv__lead { color: var(--ink-sub); }
+.fv--a .btn--sub { border: 1.5px solid var(--plum); color: var(--plum); }
+.fv--a .btn--sub:hover { background: var(--plum); color: var(--white); }
+.fv--a .fv__facts { background: var(--plum); color: rgba(255,255,255,.85); }
+.fv--a .fv__facts li + li { border-left: 1px solid rgba(255,255,255,.18); }
+.fv--a .fv__facts .icon { color: var(--gold); }
+.fv--a .fv__facts strong { color: var(--white); }
 
 /* ---------- セクション共通 ---------- */
 .sec { padding: clamp(72px, 8vw, 112px) 0; scroll-margin-top: var(--header-h); }
@@ -250,8 +263,8 @@ p, li, dd, h1, h2, h3, .trouble__title, .column span, .company__title { word-bre
   .drawer[hidden] { display: none; }
   .drawer__list a { display: block; padding: 14px 4px; border-bottom: 1px solid var(--line); text-decoration: none; font-weight: 700; }
   .drawer__tel { width: 100%; margin-top: 20px; }
-  .fv__panel { margin-top: -300px; }
-  .fv__director { height: 72%; }
+  .fv__inner { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); }
+  .fv--a .fv__panel { padding: 32px 32px 36px; }
   .head--split { grid-template-columns: minmax(0, 1fr); }
   .trouble { grid-template-columns: minmax(0, 1fr); }
   .policy { grid-template-columns: minmax(0, 1fr); }
@@ -263,20 +276,23 @@ p, li, dd, h1, h2, h3, .trouble__title, .column span, .company__title { word-bre
 /* ---------- スマホ ---------- */
 @media (max-width: 767px) {
   body { font-size: 15px; }
-  .wrap, .fv__facts { width: calc(100% - 40px); }
+  .wrap { width: calc(100% - 40px); }
   .header__inner { width: calc(100% - 32px); }
   .header__logo img { width: 168px; }
   .header__tel { display: none; }
-  .fv__sky { height: 360px; background-position: 20% 30%; }
-  .fv__director { height: 86%; right: -60px; }
+  .fv__inner { width: 100%; grid-template-columns: minmax(0, 1fr); min-height: 0; padding: 0; }
+  .fv__person { order: -1; height: 330px; margin-bottom: 0; }
+  .fv__director { height: 94%; transform: translateX(-40%); }
   .fv__name { display: none; }
-  .fv__panel { width: calc(100% - 20px); margin: -48px 0 0 0; padding: 30px 22px 32px; }
+  .fv__panel { padding: 30px 20px 34px; }
+  .fv--a .fv__panel { border-left: 0; border-top: 5px solid var(--plum); }
   .fv__title { font-size: 28px; }
   .fv__lead { font-size: 15px; }
   .fv__btns { flex-direction: column; }
   .fv__btns .btn { width: 100%; }
-  .fv__facts { grid-template-columns: minmax(0, 1fr); gap: 8px; padding-top: 24px; }
-  .fv__facts li { padding: 12px 14px; }
+  .fv__facts { grid-template-columns: minmax(0, 1fr); }
+  .fv__facts li { justify-content: flex-start; padding: 12px 20px; }
+  .fv--a .fv__facts li + li { border-left: 0; border-top: 1px solid rgba(255,255,255,.18); }
   .fv__facts .icon { font-size: 28px; }
   .fv__facts strong { font-size: 15px; }
   .sec { padding: 64px 0; }
