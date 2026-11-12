@@ -266,7 +266,7 @@ p, li, dd, h1, h2, h3, .trouble__title, .column span { word-break: keep-all; ove
   .header__type { font-size: 11px; letter-spacing: .02em; }
   .fv { grid-template-columns: minmax(0, 1fr); }
   .fv__photo { order: -1; min-height: 0; aspect-ratio: 4 / 3.3; }
-  .fv__photo img { object-position: 50% 18%; }
+  .fv__photo img { object-position: 50% 42%; }
   .fv__name { font-size: 15px; padding: 8px 16px; }
   .fv__body { padding: 36px 20px 40px; }
   .fv__brand { font-size: 13px; }
