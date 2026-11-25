@@ -88,3 +88,14 @@
     onScroll();
   }
 })();
+
+// FV：院内写真の切り替え
+(() => {
+  const box = document.querySelector('.fv2__slides'); if (!box) return;
+  const s = [...box.querySelectorAll('.fv2__slide')], d = [...box.querySelectorAll('.fv2__dots button')];
+  let i = 0, t;
+  const go = n => { s[i].classList.remove('is-on'); d[i].classList.remove('is-on'); i = n; s[i].classList.add('is-on'); d[i].classList.add('is-on'); };
+  const play = () => { if (matchMedia('(prefers-reduced-motion: reduce)').matches) return; clearInterval(t); t = setInterval(() => go((i + 1) % s.length), 5000); };
+  d.forEach((b, n) => b.addEventListener('click', () => { go(n); play(); }));
+  play();
+})();

@@ -75,8 +75,6 @@ table { border-collapse: collapse; }
 
 /* ---------- FV（共通） ---------- */
 .fv__stage { position: relative; overflow: hidden; background: #5DB4E8 url(../img/sky.jpg) center 35% / cover no-repeat; }
-.fv__inner { position: relative; width: min(1200px, calc(100% - 64px)); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; padding: 48px 0; }
-.fv__panel { position: relative; z-index: 2; align-self: center; }
 .fv__h1 { font-size: 14px; font-weight: 700; letter-spacing: .1em; color: var(--purple); }
 .fv__title { margin-top: 14px; font-size: clamp(30px, 2.9vw, 42px); font-weight: 700; line-height: 1.5; letter-spacing: .03em; }
 .fv__lead { margin-top: 16px; font-size: 16px; line-height: 1.95; }
@@ -87,13 +85,6 @@ table { border-collapse: collapse; }
 .fv__facts strong { display: block; font-size: 17px; letter-spacing: .06em; }
 
 /* 空の中に白いパネル＋紫の帯 */
-.fv .fv__panel { background: var(--white); color: var(--ink); padding: 40px 40px 44px; border-left: 6px solid var(--plum); }
-.fv__photos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.fv__photos figure { position: relative; margin: 0; background: var(--white); padding: 6px; }
-.fv__main { grid-column: 1 / -1; }
-.fv__photos img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
-.fv__sub img { aspect-ratio: 16 / 10; }
-.fv__photos figcaption { position: absolute; left: 6px; bottom: 6px; background: var(--plum); color: var(--white); font-size: 12px; font-weight: 700; letter-spacing: .1em; padding: 3px 12px; }
 .sp { display: none; }
 .fv .fv__title { color: var(--plum); }
 .fv .fv__lead { color: var(--ink-sub); }
@@ -267,7 +258,41 @@ table { border-collapse: collapse; }
 p, li, dd, h1, h2, h3, .trouble__title, .column span, .company__title { word-break: keep-all; overflow-wrap: anywhere; }
 
 /* ---------- タブレット ---------- */
+/* FV：安心できる点を並べる＋写真の切り替え */
+.fv2__inner { position: relative; width: min(1200px, calc(100% - 64px)); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 46fr) minmax(0, 54fr); align-items: center; padding: 52px 0; }
+.fv2__panel { position: relative; z-index: 2; margin-right: -56px; background: var(--white); padding: 40px 44px 42px; border-top: 6px solid var(--plum); }
+.fv2 .fv__title { color: var(--plum); font-size: clamp(28px, 2.6vw, 38px); }
+.fv2__checks { margin-top: 20px; display: grid; gap: 10px; }
+.fv2__checks li { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; font-weight: 700; line-height: 1.6; color: var(--ink); }
+.fv2__check { flex: none; display: grid; place-items: center; width: 26px; height: 26px; margin-top: 0; border-radius: 50%; background: var(--gold); color: #3A2A06; }
+.fv2__check .icon { font-size: 15px; stroke-width: 3; }
+.fv2 .fv__btns { margin-top: 28px; }
+.fv2 .btn--sub { border: 1.5px solid var(--plum); color: var(--plum); }
+.fv2 .btn--sub:hover { background: var(--plum); color: var(--white); }
+.fv2__slides { position: relative; aspect-ratio: 4 / 3; background: var(--white); border: 8px solid var(--white); }
+.fv2__slide { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity 1.2s ease; }
+.fv2__slide.is-on { opacity: 1; }
+.fv2__slide img { width: 100%; height: 100%; object-fit: cover; }
+.fv2__slide figcaption { position: absolute; right: 0; bottom: 0; background: var(--plum); color: var(--white); font-size: 13px; font-weight: 700; letter-spacing: .1em; padding: 4px 16px; }
+.fv2__dots { position: absolute; left: 72px; bottom: -40px; display: flex; gap: 2px; }
+.fv2__dots button { width: 44px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; }
+.fv2__dots button::before { content: ""; display: block; height: 4px; background: rgba(255,255,255,.6); }
+.fv2__dots button.is-on::before { background: var(--white); }
+.fv2__tel { background: var(--plum); color: var(--white); }
+.fv2__tel-inner { width: min(1200px, calc(100% - 64px)); margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 36px; padding: 22px 0; }
+.fv2__tel-label { display: flex; flex-direction: column; font-size: 15px; font-weight: 700; letter-spacing: .08em; line-height: 1.5; }
+.fv2__tel-note { font-size: 12px; font-weight: 400; color: rgba(255,255,255,.8); }
+.fv2__tel-num { display: inline-flex; align-items: center; gap: 10px; font-family: var(--num); font-size: 36px; font-weight: 500; letter-spacing: .04em; color: var(--white); text-decoration: none; }
+.fv2__tel-num .icon { font-size: 28px; color: var(--gold); }
+.fv2__tel-hours { display: flex; flex-direction: column; gap: 0; margin-left: auto; font-size: 14px; line-height: 1.75; }
+.fv2__tel-hours div { display: flex; gap: 8px; }
+.fv2__tel-hours dt { color: var(--gold); font-weight: 700; }
+
 @media (max-width: 1080px) {
+  .fv2__inner { grid-template-columns: minmax(0, 1fr); }
+  .fv2__panel { margin: 0; order: 2; }
+  .fv2__dots { left: 10px; bottom: 4px; }
+  .fv2__tel-hours { margin-left: 0; }
   :root { --header-h: 72px; }
   .topbar, .gnav { display: none; }
   .header__inner { min-height: 72px; gap: 16px; }
@@ -281,11 +306,6 @@ p, li, dd, h1, h2, h3, .trouble__title, .column span, .company__title { word-bre
   .drawer[hidden] { display: none; }
   .drawer__list a { display: block; padding: 14px 4px; border-bottom: 1px solid var(--line); text-decoration: none; font-weight: 700; }
   .drawer__tel { width: 100%; margin-top: 20px; }
-  .fv__inner { grid-template-columns: minmax(0, 1fr); }
-  .fv .fv__panel { padding: 32px 32px 36px; }
-  .fv__photos { grid-template-columns: 2fr 1fr 1fr; }
-  .fv__main { grid-column: auto; }
-  .fv__photos img, .fv__sub img { aspect-ratio: 4 / 3; }
   .head--split { grid-template-columns: minmax(0, 1fr); }
   .trouble { grid-template-columns: minmax(0, 1fr); }
   .policy { grid-template-columns: minmax(0, 1fr); }
@@ -296,21 +316,21 @@ p, li, dd, h1, h2, h3, .trouble__title, .column span, .company__title { word-bre
 
 /* ---------- スマホ ---------- */
 @media (max-width: 767px) {
+  .fv2__inner { width: 100%; padding: 0; }
+  .fv2__slides { border: 0; }
+  .fv2__dots button { width: 44px; }
+  .fv2__panel { padding: 28px 20px 32px; border-top-width: 5px; }
+  .fv2 .fv__title { font-size: 27px; }
+  .fv2__checks li { font-size: 15px; }
+  .fv2__tel-inner { width: calc(100% - 40px); padding: 20px 0 22px; gap: 8px; }
+  .fv2__tel-num { font-size: 32px; }
+  .fv2__tel-hours { flex-direction: column; font-size: 13px; }
   body { font-size: 15px; }
   .wrap { width: calc(100% - 40px); }
   .header__inner { width: calc(100% - 32px); }
   .header__logo img { width: 168px; }
   .header__tel { display: none; }
   .sp { display: inline; }
-  .fv__inner { width: 100%; grid-template-columns: minmax(0, 1fr); min-height: 0; padding: 0; gap: 0; }
-  .fv__photos { order: -1; grid-template-columns: 1fr 1fr; gap: 6px; padding: 16px 16px 0; }
-  .fv__main { grid-column: 1 / -1; }
-  .fv__photos figure { padding: 4px; }
-  .fv__photos img { aspect-ratio: 3 / 2; }
-  .fv__sub img { aspect-ratio: 4 / 3; }
-  .fv__photos figcaption { left: 4px; bottom: 4px; font-size: 11px; padding: 2px 10px; }
-  .fv__panel { padding: 30px 20px 34px; }
-  .fv .fv__panel { border-left: 0; border-top: 5px solid var(--plum); }
   .fv__title { font-size: 28px; }
   .fv__lead { font-size: 15px; }
   .fv__btns { flex-direction: column; }

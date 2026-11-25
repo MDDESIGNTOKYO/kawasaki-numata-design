@@ -208,30 +208,43 @@
 
 <main id="main">
 
-  <section class="fv" aria-labelledby="fv-title">
+  <section class="fv fv2" aria-labelledby="fv-title">
     <div class="fv__stage">
-      <div class="fv__inner">
-        <div class="fv__panel">
+      <div class="fv2__inner">
+        <div class="fv2__panel">
           <h1 class="fv__h1" id="fv-title">川崎駅から徒歩2分の心療内科・精神科</h1>
-          <p class="fv__title dmoji">うまくいかなかったのは、<br>あなただけのせいでは<br>ありません。</p>
-          <p class="fv__lead">不器用でも、<wbr>遠回りを<wbr>してきても<wbr>構いません。<wbr>いま困っている<wbr>ことを<wbr>院長と<wbr>一緒に<wbr>整理して、<wbr>ここから<wbr>次の<wbr>手を<wbr>考えていきます。</p>
+          <p class="fv__title dmoji">うまく<wbr>いかなかったのは、<br>あなただけの<wbr>せいでは<br>ありません。</p>
+          <ul class="fv2__checks">
+            <li><span class="fv2__check"><svg class="icon"><use href="#i-check"/></svg></span><span>初診から<wbr>最後まで、<wbr>院長が<wbr>担当します</span></li>
+            <li><span class="fv2__check"><svg class="icon"><use href="#i-check"/></svg></span><span>薬だけに<wbr>頼らず、<wbr>お話を<wbr>伺いながら<wbr>進めます</span></li>
+            <li><span class="fv2__check"><svg class="icon"><use href="#i-check"/></svg></span><span>ご家族の<wbr>ことで<wbr>悩む方も、<wbr>ご本人と<wbr>して<wbr>相談できます</span></li>
+            <li><span class="fv2__check"><svg class="icon"><use href="#i-check"/></svg></span><span>川崎駅から<wbr>徒歩2分。<wbr>完全予<wbr>約制です</span></li>
+          </ul>
           <div class="fv__btns">
             <a class="btn btn--gold" href="tel:0445895377"><svg class="icon"><use href="#i-phone"/></svg><span class="dmoji dmoji-nw">電話で予約する</span></a>
             <a class="btn btn--sub" href="#first"><span class="dmoji dmoji-nw">初診の流れ</span><svg class="icon"><use href="#i-arrow"/></svg></a>
           </div>
         </div>
-        <div class="fv__photos">
-          <figure class="fv__main"><img src="assets/img/clinic-waiting.jpg" alt="川崎沼田クリニックの待合室" width="1400" height="1051"><figcaption>待合室</figcaption></figure>
-          <figure class="fv__sub"><img src="assets/img/clinic-reception.jpg" alt="川崎沼田クリニックの受付" width="1000" height="751"><figcaption>受付</figcaption></figure>
-          <figure class="fv__sub"><img src="assets/img/clinic-room.jpg" alt="川崎沼田クリニックの診察室" width="1000" height="751"><figcaption>診察室</figcaption></figure>
+        <div class="fv2__slides" aria-label="院内の様子">
+          <figure class="fv2__slide is-on"><img src="assets/img/clinic-waiting.jpg" alt="川崎沼田クリニックの待合室" width="1400" height="1051"><figcaption>待合室</figcaption></figure>
+          <figure class="fv2__slide"><img src="assets/img/clinic-reception.jpg" alt="川崎沼田クリニックの受付" width="1000" height="751"><figcaption>受付</figcaption></figure>
+          <figure class="fv2__slide"><img src="assets/img/clinic-room.jpg" alt="川崎沼田クリニックの診察室" width="1000" height="751"><figcaption>診察室</figcaption></figure>
+          <figure class="fv2__slide"><img src="assets/img/clinic-exterior.jpg" alt="川崎沼田クリニックが入る加瀬ビル133の外観" width="1000" height="751"><figcaption>外観</figcaption></figure>
+          <div class="fv2__dots"><button type="button" aria-label="待合室の写真" class="is-on"></button><button type="button" aria-label="受付の写真"></button><button type="button" aria-label="診察室の写真"></button><button type="button" aria-label="外観の写真"></button></div>
         </div>
       </div>
     </div>
-    <ul class="fv__facts">
-      <li><svg class="icon"><use href="#i-user"/></svg><span><strong>完全主<wbr>治医制</strong>初診から<wbr>最後まで<wbr>院長が<wbr>担当</span></li>
-      <li><svg class="icon"><use href="#i-badge"/></svg><span><strong>精神保健指定医</strong>日本医師会 認定産業医</span></li>
-      <li><svg class="icon"><use href="#i-train"/></svg><span><strong>駅から<wbr>徒歩2分</strong>JR川崎駅<wbr>東口・京急川崎駅</span></li>
-    </ul>
+    <div class="fv2__tel">
+      <div class="fv2__tel-inner">
+        <p class="fv2__tel-label"><span class="dmoji">ご予約・<wbr>お問い合わせ</span><span class="fv2__tel-note">完全予<wbr>約制</span></p>
+        <a class="fv2__tel-num" href="tel:0445895377"><svg class="icon"><use href="#i-phone"/></svg>044-589-5377</a>
+        <dl class="fv2__tel-hours">
+          <div><dt>平日</dt><dd><span class="nw">9:30〜12:30</span>・<span class="nw">14:30〜18:15</span></dd></div>
+          <div><dt>土曜</dt><dd><span class="nw">9:00〜12:00</span>・<span class="nw">14:00〜16:45</span></dd></div>
+          <div><dt>休診</dt><dd>木曜・日曜・祝日</dd></div>
+        </dl>
+      </div>
+    </div>
   </section>
 
   <section class="sec" id="trouble" aria-labelledby="trouble-title">
@@ -517,5 +530,6 @@
 </div>
 
 <script src="assets/js/main.js"></script>
+
 </body>
 </html>
