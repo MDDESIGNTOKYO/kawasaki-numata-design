@@ -260,7 +260,7 @@ p, li, dd, h1, h2, h3, .trouble__title, .column span, .company__title { word-bre
 /* ---------- タブレット ---------- */
 /* FV：安心できる点を並べる＋写真の切り替え */
 .fv2__inner { position: relative; width: min(1200px, calc(100% - 64px)); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 46fr) minmax(0, 54fr); align-items: center; padding: 52px 0; }
-.fv2__panel { position: relative; z-index: 2; margin-right: -56px; background: var(--white); padding: 40px 44px 42px; border-top: 6px solid var(--plum); }
+.fv2__panel { position: relative; z-index: 2; margin-right: -56px; background: var(--white); padding: 40px 44px 42px; }
 .fv2 .fv__title { color: var(--plum); font-size: clamp(28px, 2.6vw, 38px); }
 .fv2__checks { margin-top: 20px; display: grid; gap: 10px; }
 .fv2__checks li { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; font-weight: 700; line-height: 1.6; color: var(--ink); }
@@ -319,7 +319,7 @@ p, li, dd, h1, h2, h3, .trouble__title, .column span, .company__title { word-bre
   .fv2__inner { width: 100%; padding: 0; }
   .fv2__slides { border: 0; }
   .fv2__dots button { width: 44px; }
-  .fv2__panel { padding: 28px 20px 32px; border-top-width: 5px; }
+  .fv2__panel { padding: 28px 20px 32px; }
   .fv2 .fv__title { font-size: 27px; }
   .fv2__checks li { font-size: 15px; }
   .fv2__tel-inner { width: calc(100% - 40px); padding: 20px 0 22px; gap: 8px; }
