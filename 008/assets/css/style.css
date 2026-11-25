@@ -112,8 +112,9 @@ table { border-collapse: collapse; }
 .trouble { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; border-top: 2px solid var(--plum); }
 .trouble a { display: flex; align-items: center; gap: 20px; padding: 22px 8px 22px 0; border-bottom: 1px solid var(--line); text-decoration: none; transition: background-color .2s; height: 100%; }
 .trouble a:hover { background: var(--purple-soft); }
-.trouble li:nth-child(-n+2) a { padding-top: 32px; }  /* 上の線との間をあける */
-.trouble li:last-child a { padding-bottom: 32px; }  /* 下の線との間も上とそろえる */
+.trouble { padding-top: 10px; }  /* 上の線との間（マウスを乗せても白いまま） */
+.trouble li:last-child { padding-bottom: 10px; border-bottom: 1px solid var(--line); }  /* 下の線との間も上とそろえる */
+.trouble li:last-child a { border-bottom: 0; }
 .trouble__num { font-family: var(--num); font-size: 28px; font-weight: 500; color: var(--sky); width: 2em; text-align: center; flex: none; }
 .trouble__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
 .trouble__tag { font-size: 13px; font-weight: 700; color: var(--purple); letter-spacing: .06em; margin-top: 2px; }
@@ -310,7 +311,6 @@ p, li, dd, h1, h2, h3, .trouble__title, .column span, .company__title { word-bre
   .drawer__tel { width: 100%; margin-top: 20px; }
   .head--split { grid-template-columns: minmax(0, 1fr); }
   .trouble { grid-template-columns: minmax(0, 1fr); }
-  .trouble li:nth-child(2) a { padding-top: 22px; }
   .policy { grid-template-columns: minmax(0, 1fr); }
   .policy__item + .policy__item { border-left: 0; border-top: 1px solid var(--line); }
   .info, .access, .greeting { grid-template-columns: minmax(0, 1fr); }
@@ -349,9 +349,6 @@ p, li, dd, h1, h2, h3, .trouble__title, .column span, .company__title { word-bre
   .head__lead { margin-left: 0; }
   .head--row { flex-direction: column; align-items: flex-start; gap: 8px; }
   .trouble a { gap: 12px; padding: 18px 4px 18px 0; }
-  .trouble li:first-child a { padding-top: 28px; }
-  .trouble li:nth-child(2) a { padding-top: 18px; }
-  .trouble li:last-child a { padding-bottom: 28px; }
   .trouble__num { font-size: 22px; width: 1.6em; }
   .trouble__title { font-size: 16px; }
   .company { padding: 18px 20px; }
